@@ -1,11 +1,10 @@
 import csv
 import os
-# import tkinter as tk
-# from tkinter.filedialog import askopenfilename
+import tkinter as tk
+from tkinter.filedialog import askopenfilename
 
-# # tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-# filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-# print(filename)
+filename = askopenfilename() 
+print(filename)
 
 
 if os.path.exists("output.txt"):
@@ -14,7 +13,7 @@ if os.path.exists("output.txt"):
 outputFile = "output.txt";
 out = open("output.txt", "a");
 
-with open("testFiles\Shop_PLUs.txt", "r") as csv_file:
+with open(filename, "r") as csv_file:
     csv_reader= csv.reader(csv_file, delimiter=',');
     line = 0;
     for row in csv_reader:

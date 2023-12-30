@@ -27,7 +27,7 @@ with open(filename, "r") as csv_file:
                 else:
                     out.write(row[column]);
                     out.write(" ")
-            out.write("\n\n")
+            out.write("\n")
         line += 1;
         
 out.close;

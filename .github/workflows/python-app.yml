@@ -37,3 +37,10 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        - name: Build
+        run: pyinstaller --onefile src/main.py
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: main
+        path: ./dist/main

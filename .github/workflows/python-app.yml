@@ -47,11 +47,15 @@ jobs:
     #     name: main
     #     path: src/dist/main
 
+    - name: Build executable
+      run: |
+        pyinstaller --onefile src/main.py
+
     - name: Upload build
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: src
+        path: src/build
   
     # - uses: actions/checkout@v2
     # - name: Execute pyinstaller

@@ -55,7 +55,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: src/build
+        path: src
   
     # - uses: actions/checkout@v2
     # - name: Execute pyinstaller

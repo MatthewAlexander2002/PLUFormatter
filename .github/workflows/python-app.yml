@@ -49,7 +49,6 @@ jobs:
 
     - name: Build executable
       run: |
-        # pyinstaller --onefile src/main.py
         python -m PyInstaller --onefile src/main.py
 
     - name: Upload build

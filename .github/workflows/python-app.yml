@@ -38,14 +38,20 @@ jobs:
     # - name: Test with pytest
     #   run: |
     #     pytest
-    - name: Build executable
-      run: |
-        pyinstaller --onefile src/main.py
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
+    # - name: Build executable
+    #   run: |
+    #     pyinstaller --onefile src/main.py
+    # - name: Upload artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: main
+    #     path: src/dist/main
+
+    - name: Upload build
+      uses: actions/upload-artifact@v3
       with:
-        name: main
-        path: src/dist/main
+        name: build
+        path: src/build
   
     # - uses: actions/checkout@v2
     # - name: Execute pyinstaller

@@ -1,21 +1,21 @@
 import csv
 import os
+from pypdf import PdfWriter
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 
 filename = askopenfilename() 
-print(filename)
 
+if os.path.exists("output.html"):
+  os.remove("output.html")
 
-if os.path.exists("output.txt"):
-  os.remove("output.txt")
-
-outputFile = "output.txt";
-out = open("output.txt", "a");
+outputFile = "output.html";
+out = open("output.html", "a");
 
 with open(filename, "r") as csv_file:
     csv_reader= csv.reader(csv_file, delimiter=',');
     line = 0;
+    out.write("<!DOCTYPE html>\n <html>\n <style>\n p {font-family:arial; font-size:16px;}\n </style>\n <body>\n <p>\n")
     for row in csv_reader:
         if line == 0:
             line += 1;
@@ -27,8 +27,9 @@ with open(filename, "r") as csv_file:
                 else:
                     out.write(row[column]);
                     out.write(" ")
-            out.write("\n")
+            out.write("\n<br>")
         line += 1;
+    out.write(" </p>\n </body>\n </html>")
         
 out.close;
 csv_file.close;
